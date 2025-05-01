@@ -1,6 +1,7 @@
 'use client';
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interface Window {
     Calendly: any;
   }
@@ -79,7 +80,7 @@ export default function HomePage() {
               About Me
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
-              I’m Oleksandra, a life coach and karmic guide passionate about helping you realign with your spiritual path.
+              I&apos;m Oleksandra, a life coach and karmic guide passionate about helping you realign with your spiritual path.
               Through deep karmic insight, intuitive clarity, and emotional release, I help clients reconnect with who they truly are —
               so they can live with intention, flow, and freedom.
             </p>
@@ -154,11 +155,13 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="max-w-4xl mx-auto border border-purple-200 rounded-xl shadow-xl overflow-hidden"
           >
-            <div
-              id="calendly-container"
-              style={{ minWidth: "320px", height: "700px" }}
-              className="w-full"
-            />
+        {loaded && (
+          <div
+            id="calendly-container"
+            style={{ minWidth: "320px", height: "700px" }}
+            className="w-full"
+          />
+        )}
           </motion.div>
 
           <p className="text-sm text-gray-500 mt-4 text-center">
