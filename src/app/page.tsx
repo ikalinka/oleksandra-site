@@ -16,6 +16,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function HomePage() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -195,7 +196,7 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-2xl mx-auto text-md text-gray-600 mb-8 text-center"
           >
-            I’d love to hear from you. Whether you have a question, want to connect, or are ready to begin your journey—reach out.
+            I&apos;d love to hear from you. Whether you have a question, want to connect, or are ready to begin your journey—reach out.
           </motion.p>
 
           <motion.div
