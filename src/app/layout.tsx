@@ -16,13 +16,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Calendly Styles */}
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLNX6MEHG2"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DLNX6MEHG2');
+            `,
+          }}
+        />
+
+        {/* Calendly Styles and Script */}
         <link
           href="https://assets.calendly.com/assets/external/widget.css"
           rel="stylesheet"
         />
-
-        {/* Calendly Script */}
         <script
           src="https://assets.calendly.com/assets/external/widget.js"
           async
