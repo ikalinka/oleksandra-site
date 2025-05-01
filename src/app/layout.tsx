@@ -15,6 +15,20 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Calendly Styles */}
+        <link
+          href="https://assets.calendly.com/assets/external/widget.css"
+          rel="stylesheet"
+        />
+
+        {/* Calendly Script */}
+        <script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          async
+        ></script>
+      </head>
+
       <body className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased scroll-smooth`}>
         {children}
       </body>

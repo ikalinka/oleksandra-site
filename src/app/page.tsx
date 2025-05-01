@@ -1,9 +1,13 @@
 'use client';
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   interface Window {
-    Calendly: any;
+    Calendly?: {
+      initInlineWidget: (options: {
+        url: string;
+        parentElement: HTMLElement | null;
+      }) => void;
+    };
   }
 }
 
@@ -16,23 +20,38 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function HomePage() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (window.Calendly) {
+    const tryLoadCalendly = () => {
+      if (window.Calendly && document.getElementById("calendly-container")) {
         window.Calendly.initInlineWidget({
           url: "https://calendly.com/oleksandra-kalinka",
           parentElement: document.getElementById("calendly-container"),
         });
         setLoaded(true);
-        clearInterval(interval);
+        return true;
       }
-    }, 100);
-    return () => clearInterval(interval);
-  }, []);
-
+      return false;
+    };
+  
+    // Try immediately
+    if (tryLoadCalendly()) return;
+  
+    // Retry for 10 seconds
+    const interval = setInterval(() => {
+      if (tryLoadCalendly()) clearInterval(interval);
+    }, 250);
+  
+    const timeout = setTimeout(() => clearInterval(interval), 10000);
+  
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timeout);
+    };
+  }, []);  
+  
+  
   return (
     <>
       <Header />
@@ -121,7 +140,7 @@ export default function HomePage() {
             <div className="bg-white shadow-md border border-purple-100 rounded-xl p-6 hover:shadow-lg transition">
               <h3 className="text-xl font-semibold text-purple-700 mb-2">🔥 Block Clearing</h3>
               <p className="text-gray-700 text-sm">
-                Clear deep energetic patterns and release what's holding you back.
+                Clear deep energetic patterns and release what&apos;s holding you back.
               </p>
             </div>
           </motion.div>
@@ -145,10 +164,10 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-2xl mx-auto text-md text-gray-600 mb-8 text-center"
           >
-            Start your transformation journey today. Pick a date that works best for you and let’s connect.
+            Start your transformation journey today. Pick a date that works best for you and let&rsquo;s connect.
           </motion.p>
 
-          <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="lazyOnload" />
+          <Script src="https://assets.calendly.com/assets/external/widget.js" strategy="afterInteractive" />
 
           <motion.div
             initial={{ opacity: 0 }}
@@ -156,14 +175,28 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="max-w-4xl mx-auto border border-purple-200 rounded-xl shadow-xl overflow-hidden"
           >
-        {loaded && (
           <div
             id="calendly-container"
             style={{ minWidth: "320px", height: "700px" }}
-            className="w-full"
+            className={`w-full transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"}`}
           />
-        )}
+
           </motion.div>
+          {!loaded && (
+            <p className="text-sm text-red-500 mt-4 text-center">
+              ⚠️ Calendar failed to load.{" "}
+              <a
+                href="https://calendly.com/oleksandra-kalinka"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline text-purple-600"
+              >
+                Click here
+              </a>{" "}
+              to book manually.
+            </p>
+          )}
+
 
           <p className="text-sm text-gray-500 mt-4 text-center">
             Trouble loading?{" "}
