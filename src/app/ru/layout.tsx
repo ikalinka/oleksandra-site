@@ -46,6 +46,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ru">
       <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#3B1B6F" />
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLNX6MEHG2"></script>
         <script
