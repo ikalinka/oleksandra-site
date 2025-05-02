@@ -2,18 +2,27 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "../styles/globals.css";
 
-// Font setup
 const geistSans = Geist({ variable: "--font-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const playfair = Playfair_Display({ variable: "--font-display", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Oleksandra Kalinka – Life Coach & Karmic Guide",
-  description: "Book a 1:1 session with Oleksandra to awaken your power and release energetic blocks.",
+  title: "Александра Калинка – Кармический гид и лайф-коуч",
+  description: "Запишитесь на индивидуальную сессию и раскройте свой потенциал.",
+  metadataBase: new URL("https://oleksandra-site.vercel.app"),
+  alternates: {
+    canonical: "/ru",
+    languages: {
+      "en": "/en",
+      "uk": "/uk",
+      "ru": "/ru",
+      "x-default": "/en",
+    },
+  },
   openGraph: {
-    title: "Oleksandra Kalinka – Life Coach & Karmic Guide",
-    description: "Reconnect with your soul's purpose through personalized karmic coaching.",
-    url: "https://oleksandra-site.vercel.app",
+    title: "Александра Калинка – Кармический гид и лайф-коуч",
+    description: "Верните связь с душой через кармическое коучинг-наставничество.",
+    url: "https://oleksandra-site.vercel.app/ru",
     siteName: "Oleksandra Kalinka",
     images: [
       {
@@ -27,17 +36,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oleksandra Kalinka – Life Coach & Karmic Guide",
-    description: "Reconnect with your soul's purpose through personalized karmic coaching.",
+    title: "Александра Калинка – Кармический гид и лайф-коуч",
+    description: "Верните связь с душой через кармическое коучинг-наставничество.",
     images: ["https://oleksandra-site.vercel.app/og-image.jpg"],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <head>
-        {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLNX6MEHG2"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -49,8 +57,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
-
-        {/* Calendly Widget */}
         <link
           href="https://assets.calendly.com/assets/external/widget.css"
           rel="stylesheet"
