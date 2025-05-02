@@ -1,6 +1,7 @@
 // Example: src/app/en/layout.tsx
 
 import type { Metadata } from 'next';
+import "../../styles/globals.css";
 
 export const metadata: Metadata = {
   title: 'Oleksandra Kalinka – Life Coach & Karmic Guide',
