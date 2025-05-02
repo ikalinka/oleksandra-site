@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Олександра Калінка – Кармічний гід та лайф-коуч",
     description: "З&apos;єднайтеся зі своїм справжнім призначенням через персональний коучинг.",
-    url: "https://oleksandra-site.vercel.app/uk",
+    url: "https://kalinkacoach.com.app/uk",
     siteName: "Oleksandra Kalinka",
     images: [
       {
-        url: "https://oleksandra-site.vercel.app/og-image.jpg",
+        url: "https://kalinkacoach.com.app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Oleksandra Kalinka",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Олександра Калінка – Кармічний гід та лайф-коуч",
     description: "З&apos;єднайтеся зі своїм справжнім призначенням через персональний коучинг.",
-    images: ["https://oleksandra-site.vercel.app/og-image.jpg"],
+    images: ["https://kalinkacoach.com/og-image.jpg"],
   },
 };
 

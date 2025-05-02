@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Oleksandra Kalinka – Life Coach & Karmic Guide',
     description: 'Book a 1:1 session with Oleksandra to awaken your power and release energetic blocks.',
-    url: 'https://oleksandra-site.vercel.app/en',
+    url: 'https://kalinkacoach.com/en',
     siteName: 'Oleksandra Kalinka',
     images: [
       {
-        url: 'https://oleksandra-site.vercel.app/og-image.jpg',
+        url: 'https://kalinkacoach.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Oleksandra Kalinka',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Oleksandra Kalinka – Life Coach & Karmic Guide',
     description: 'Book a 1:1 session with Oleksandra to awaken your power and release energetic blocks.',
-    images: ['https://oleksandra-site.vercel.app/og-image.jpg'],
+    images: ['https://kalinkacoach.com/og-image.jpg'],
   },
 };
 
