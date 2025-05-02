@@ -7,7 +7,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 const playfair = Playfair_Display({ variable: "--font-display", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Олександра Калинка – Кармічний гід та лайф-коуч",
+  title: "Олександра Калінка – Кармічний гід та лайф-коуч",
   description: "Запишіться на сесію, щоб розкрити свій потенціал та очистити енергетичні блоки.",
   metadataBase: new URL("https://oleksandra-site.vercel.app"),
   alternates: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Олександра Калінка – Кармічний гід та лайф-коуч",
-    description: "Зєднайтеся зі своїм справжнім призначенням через персональний коучинг.",
+    description: "З&apos;єднайтеся зі своїм справжнім призначенням через персональний коучинг.",
     url: "https://oleksandra-site.vercel.app/uk",
     siteName: "Oleksandra Kalinka",
     images: [
@@ -36,16 +36,17 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Олександра Калинка – Кармічний гід та лайф-коуч",
+    title: "Олександра Калінка – Кармічний гід та лайф-коуч",
     description: "З&apos;єднайтеся зі своїм справжнім призначенням через персональний коучинг.",
     images: ["https://oleksandra-site.vercel.app/og-image.jpg"],
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="uk">
       <head>
+        {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLNX6MEHG2"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -57,14 +58,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `,
           }}
         />
-        <link
-          href="https://assets.calendly.com/assets/external/widget.css"
-          rel="stylesheet"
-        />
-        <script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          async
-        ></script>
+        {/* Calendly Widget */}
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased scroll-smooth`}>
         {children}
