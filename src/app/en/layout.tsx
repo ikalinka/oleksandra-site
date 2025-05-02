@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google';
 import "../../styles/globals.css";
 
-// Font setup
 const geistSans = Geist({ variable: '--font-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 const playfair = Playfair_Display({ variable: '--font-display', subsets: ['latin'] });
@@ -10,6 +9,16 @@ const playfair = Playfair_Display({ variable: '--font-display', subsets: ['latin
 export const metadata: Metadata = {
   title: 'Oleksandra Kalinka – Life Coach & Karmic Guide',
   description: 'Book a 1:1 session with Oleksandra to awaken your power and release energetic blocks.',
+  metadataBase: new URL('https://oleksandra-site.vercel.app'),
+  alternates: {
+    canonical: '/en',
+    languages: {
+      en: '/en',
+      uk: '/uk',
+      ru: '/ru',
+      'x-default': '/en',
+    },
+  },
   openGraph: {
     title: 'Oleksandra Kalinka – Life Coach & Karmic Guide',
     description: 'Book a 1:1 session with Oleksandra to awaken your power and release energetic blocks.',
@@ -36,6 +45,32 @@ export const metadata: Metadata = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Favicon & Manifest */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#3B1B6F" />
+
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DLNX6MEHG2"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DLNX6MEHG2');
+            `,
+          }}
+        />
+
+        {/* Calendly Widget */}
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased scroll-smooth`}>
         {children}
       </body>
