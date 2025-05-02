@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenu, HiX } from 'react-icons/hi';
 
 // Translation map
-const navLabels: Record<string, Record<string, string>> = {
+const navLabels: Record<string, Record<'about' | 'services' | 'book' | 'contact', string>> = {
   en: {
     about: 'About',
     services: 'Services',
@@ -27,12 +27,12 @@ const navLabels: Record<string, Record<string, string>> = {
   },
 };
 
+const navKeys: Array<'about' | 'services' | 'book' | 'contact'> = ['about', 'services', 'book', 'contact'];
+
 const LanguageSwitcher = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const [isPending, startTransition] = useTransition();
-
-  const locales = ['en', 'uk', 'ru'];
+  const [, startTransition] = useTransition();
   const currentLocale = pathname.split('/')[1] || 'en';
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -86,7 +86,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6 text-sm text-purple-800 font-medium">
-          {Object.keys(labels).map((key) => (
+          {navKeys.map((key) => (
             <button
               key={key}
               onClick={() => scrollTo(key)}
@@ -117,7 +117,7 @@ export default function Header() {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-white/90 backdrop-blur-md shadow-md px-4 py-4 space-y-2 border-t border-purple-100"
           >
-            {Object.keys(labels).map((key) => (
+            {navKeys.map((key) => (
               <button
                 key={key}
                 onClick={() => scrollTo(key)}
