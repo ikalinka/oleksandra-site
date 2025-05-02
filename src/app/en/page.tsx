@@ -1,10 +1,4 @@
-'use client';
-
-export const metadata = {
-    title: "Oleksandra Kalinka – Life Coach & Karmic Guide",
-    description: "Book a 1:1 session with Oleksandra to awaken your power and release energetic blocks.",
-  };
-  
+'use client';  
 
 declare global {
   interface Window {
