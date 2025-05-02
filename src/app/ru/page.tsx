@@ -1,11 +1,5 @@
 'use client';
 
-export const metadata = {
-    title: "Александра Калинка – Кармический гид и лайф-коуч",
-    description: "Запишитесь на индивидуальную сессию и раскройте свой потенциал.",
-  };
-  
-
 declare global {
   interface Window {
     Calendly?: {
