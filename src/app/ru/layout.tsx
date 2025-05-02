@@ -9,7 +9,7 @@ const playfair = Playfair_Display({ variable: "--font-display", subsets: ["latin
 export const metadata: Metadata = {
   title: "Александра Калинка – Кармический гид и лайф-коуч",
   description: "Запишитесь на индивидуальную сессию и раскройте свой потенциал.",
-  metadataBase: new URL("https://oleksandra-site.vercel.app"),
+  metadataBase: new URL("https://kalinkacoach.com"),
   alternates: {
     canonical: "/ru",
     languages: {
