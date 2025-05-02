@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: true, // optional if you use server actions
-  },
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
