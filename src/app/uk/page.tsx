@@ -1,5 +1,11 @@
 'use client';
 
+export const metadata = {
+    title: "Олександра Калінка – Кармічний гід та лайф-коуч",
+    description: "Запишіться на сесію, щоб розкрити свій потенціал та очистити енергетичні блоки.",
+  };
+  
+
 declare global {
   interface Window {
     Calendly?: {
